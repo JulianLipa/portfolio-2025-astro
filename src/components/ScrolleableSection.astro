@@ -1,0 +1,39 @@
+---
+interface Project {
+  title: string;
+  image: string;
+  description: string;
+  areas: string[];
+  link?: string;
+}
+
+const { projects } = Astro.props as { projects: Project[] };
+---
+
+{
+  projects.map((project) => (
+    <div class="scrollableDiv">
+      <div class="glass-card-content">
+        <div class="glass-card-body">
+          <p class="title">{project.title}</p>
+
+          <div id="divImageText">
+            <img src={project.image} alt={project.title} />
+            <p>{project.description}</p>
+          </div>
+
+          <div id="areasTrabajo">
+            {project.areas.map((area) => (
+              <div class="areaTrabajo">{area}</div>
+            ))}
+          </div>
+        </div>
+        {project.link && (
+          <a href={project.link} class="button">
+            <i class="fa-regular fa-eye whiteIcon" />
+          </a>
+        )}
+      </div>
+    </div>
+  ))
+}

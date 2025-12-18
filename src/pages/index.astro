@@ -1,11 +1,156 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import "../styles/globals.css";
+import P5Wrapper from "../components/P5Wrapper.astro";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import ScrollableSection from "../components/ScrolleableSection.astro";
+
+const projects = [
+  {
+    title: "Graffo",
+    image: "/graffo.png",
+    description:
+      "Programación y diseño de sitio web interactivo con Realidad Aumentada enfocado al mundo del Graffity y el arte urbano.",
+    areas: ["Programación Web", "Diseño UX/UI", "Realidad Aumentada"],
+    link: "https://graffo.vercel.app",
+  },
+  {
+    title: "Gaba Café",
+    image: "/gaba-cafe.png",
+    description:
+      "Tostadores de café. Branding, estrategia y comunicación del proyecto.",
+    areas: ["Branding", "Estrategia", "Comunicación"],
+    link: "https://www.instagram.com/gaba.cafe/",
+  },
+  {
+    title: "Bolero + Fervor",
+    image: "/bolero-cover.png",
+    description:
+      "Diseño de sitio web conceptual para comunicación de la obra teatral, así como también de la Companía de Ballet Contemporáneo del Teatro San Martín.",
+    areas: ["Branding", "Diseño UX/UI", "Sitio web"],
+    link: "/",
+  },
+];
 ---
 
-<Layout>
-	<Welcome />
-</Layout>
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Julian Lipari</title>
+  </head>
+  <body>
+    <section id="hero">
+      <img
+        src="/logo.gif"
+        id="logo-element"
+        alt="Julian Lipari Designer Logo"
+        loading="lazy"
+        class="logo-scrolled"
+      />
+      <img src="/favicon.svg" id="faviconGif" loading="lazy" />
+
+      <P5Wrapper />
+    </section>
+
+    <div id="scrollHint">
+      <i class="fa-solid fa-arrow-down" class="whiteIcon"></i> Scroll <i
+        class="fa-solid fa-arrow-down"></i>
+    </div>
+
+    <section id="scrollableSection">
+      <ScrollableSection projects={projects} />
+
+      <div class="scrollableDiv" id="lastDiv">
+        <div class="glass-card-content">
+          <p class="title">Julián Lipari ©️ - 2025</p>
+          <div id="socialMediaIcons">
+            <a
+              href="https://www.instagram.com/julian.lipari/"
+              class="socialMediaIcon"
+              target="_blank"><i class="fa-brands fa-instagram"></i></a
+            >
+
+            <a
+              href="https://www.tiktok.com/@julian.lipari"
+              target="_blank"
+              class="socialMediaIcon"><i class="fa-brands fa-tiktok"></i></a
+            >
+
+            <a
+              href="https://www.youtube.com/@JulianLipari"
+              target="_blank"
+              class="socialMediaIcon"><i class="fa-brands fa-youtube"></i></a
+            >
+
+            <a
+              href="https://open.spotify.com/user/lipajulianp-ar?si=8ea0f6a6fc324967"
+              target="_blank"
+              class="socialMediaIcon"><i class="fa-brands fa-spotify"></i></a
+            >
+          </div>
+
+          <a class="buttonText" href="mailto:julianlipari1@gmail.com"
+            >julianlipari1@gmail.com</a
+          >
+          <div id="divImageText">
+            <img src="/Foto Perfil.JPG" alt="" />
+
+            <p>
+              Diseñador actualmente viviendo en <b>Buenos Aires, Argentina</b>.
+              Me gustan los desafíos, aprender nuevas herramientas que permitan
+              <b
+                >expandir y desarrollar proyectos ambiciosos y
+                multidisciplinarios</b
+              >.
+            </p>
+
+            <p id="responsiveTxt">
+              Interesado en profundizar mi conocimiento en <b
+                >herramientas con IA</b
+              >,
+              <b>programación de proyectos interactivos</b> relacionados con la realidad
+              aumentada, el manejo de inputs y demás sensores y manejadores de los
+              dispositivos multimediales.
+            </p>
+          </div>
+
+          <a href="" class="button" id="buttonShadow">👉 Trabajemos juntos!</a>
+        </div>
+      </div>
+
+      <div id="footerSection">
+        <a href="#" id="scrollTopBtn">
+          <i class="fa-solid fa-house"></i>
+        </a>
+        <img class="logo" src="/logo-julian-lipari.svg" alt="" />
+      </div>
+    </section>
+
+    <script
+      src="https://kit.fontawesome.com/ecb957ab20.js"
+      crossorigin="anonymous"></script>
+
+    <!-- Scroll core -->
+    <script type="module" src="/src/script/scroll/scrollInit.js"></script>
+    <script type="module" src="/src/script/scroll/scrollTop.js"></script>
+    <script type="module" src="/src/script/scroll/scrollToLast.js"></script>
+    <script type="module" src="/src/script/scroll/scrollSectionVisibility.js"
+    ></script>
+
+    <!-- Hero -->
+    <script type="module" src="/src/script/hero/heroScrollHint.js"></script>
+
+    <!-- Layout -->
+    <script type="module" src="/src/script/layout/dynamicHeights.js"></script>
+
+    <script>
+      if ("scrollRestoration" in history) {
+        history.scrollRestoration = "manual";
+      }
+      requestAnimationFrame(() => {
+        window.scrollTo(0, 0);
+      });
+    </script>
+  </body>
+</html>

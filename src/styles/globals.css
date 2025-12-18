@@ -1,0 +1,421 @@
+@import url("https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght,GRAD@0,17..18,400..700,-50..200;1,17..18,400..700,-50..200&display=swap");
+
+/* ===================================================== */
+/* Reset + Tipografía global                              */
+/* ===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+p,
+div,
+button,
+a {
+  font-family: "Google Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+
+img {
+  height: 100%;
+  width: auto;
+}
+
+.whiteIcon {
+  color: white !important;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 2em;
+}
+
+/* ===================================================== */
+/* Estructura base + Scroll global                        */
+/* ===================================================== */
+html {
+  height: 100%;
+  overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===================================================== */
+/* Hero                                                   */
+/* ===================================================== */
+#hero {
+  position: fixed;
+  width: 100svw;
+  height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+#hero div {
+  display: flex;
+  padding: 1rem;
+  border-radius: 0.5em;
+}
+
+.logo {
+  height: 3em;
+  border-radius: 20px;
+}
+
+#logo-element {
+  width: 20svw;
+}
+
+.logo-scrolled {
+  position: absolute;
+}
+
+.hero-item {
+  padding: 1em;
+  border: 1px solid black;
+  border-radius: 1em;
+  font-weight: 100;
+  background-color: none;
+}
+
+#wrapperHeroP5 {
+  position: fixed;
+  width: 100svw;
+  height: 100svh;
+}
+
+#faviconGif {
+  position: absolute;
+  z-index: -2;
+  width: 20svw;
+}
+
+/* ===================================================== */
+/* Scrollable Sections                                    */
+/* ===================================================== */
+#scrollableSection {
+  position: absolute;
+  width: 100%;
+  margin-top: 100svh;
+  z-index: 1000;
+}
+
+.scrollableDiv,
+#scrollableSection > .scrollableDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  scroll-snap-align: start;
+  transition: height 0.4s ease;
+}
+
+#scrollableSection div img {
+  border-radius: 0.3em;
+}
+
+/* ===================================================== */
+/* Glass Card                                             */
+/* ===================================================== */
+.glass-card-content {
+  width: 90svw;
+  height: 85svh;
+  margin-top: 10svh;
+  padding: 1em 2em;
+  gap: 1em;
+
+  /* CAMBIO */
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  color: black;
+  border-radius: 0.8em;
+  border: 0.5px solid rgba(255, 255, 255, 0.7);
+
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  box-shadow: 0 0px 100px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+/* AGREGADO */
+.glass-card-body {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  min-height: 0;
+
+  width: 100%;
+  gap: 0.5em;
+  display: grid;
+}
+
+.glass-card-content img {
+  height: 350px;
+}
+
+.glass-card-content #divImageText {
+  display: flex;
+  gap: 1em;
+}
+
+/* Último bloque con scroll interno */
+#lastDiv .glass-card-content {
+  overflow-y: auto;
+  padding-bottom: 1em;
+}
+
+/* ===================================================== */
+/* Áreas de trabajo                                       */
+/* ===================================================== */
+#areasTrabajo {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  flex-shrink: 0;
+}
+
+.areaTrabajo {
+  padding: 1em 2em;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 4em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* ===================================================== */
+/* Botones                                                */
+/* ===================================================== */
+.button {
+  font-size: 1.5em;
+  padding: 0.5em 2em;
+  border-radius: 10px;
+  text-decoration: none;
+  text-align: center;
+
+  background-color: blue;
+  color: white;
+
+  /* AGREGADO */
+  margin-top: auto;
+}
+
+.buttonText,
+#socialMediaIcons a {
+  color: blue;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+#buttonShadow {
+  position: relative;
+  transition: all 0.3s ease;
+  animation: glowScale 1s infinite alternate;
+}
+
+/* ===================================================== */
+/* Footer                                                 */
+/* ===================================================== */
+#footerSection {
+  position: fixed;
+  top: 0;
+  left: 0;
+  gap: 1em;
+
+  width: 100%;
+  height: 10svh;
+  padding: 3em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2000;
+
+  transition: opacity 0.5s ease;
+}
+
+#footerSection.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ===================================================== */
+/* Social Media                                           */
+/* ===================================================== */
+#socialMediaIcons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5em;
+}
+
+.socialMediaIcon {
+  display: flex;
+}
+
+.socialMediaIcon i {
+  font-size: 1.5em;
+}
+
+/* ===================================================== */
+/* Scroll Hint                                            */
+/* ===================================================== */
+#scrollHint {
+  position: fixed;
+  top: 4svh;
+  left: 50%;
+  transform: translateX(-50%);
+
+  padding: 0.6em 1.2em;
+  border-radius: 2em;
+
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  font-size: 0.9em;
+  letter-spacing: 0.05em;
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 3000;
+
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  animation: scrollHintFloat 1.6s ease-in-out infinite;
+}
+
+#scrollHint.visible {
+  opacity: 1;
+}
+
+/* ===================================================== */
+/* Navegación                                             */
+/* ===================================================== */
+.navArrow {
+  background: none;
+  border: none;
+  padding: 0.5em;
+
+  font-size: 1.5em;
+  color: blue;
+  cursor: pointer;
+
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.navArrow:hover {
+  transform: scale(1.2);
+  opacity: 0.7;
+}
+
+/* ===================================================== */
+/* Animaciones                                            */
+/* ===================================================== */
+@keyframes glowScale {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 150, 255, 0);
+  }
+  50% {
+    transform: scale(1.02);
+    box-shadow: 0 0 50px rgba(0, 42, 255, 0.5);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 rgba(0, 150, 255, 0);
+  }
+}
+
+@keyframes scrollHintFloat {
+  0% {
+    transform: translateX(-50%) translateY(10px);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+/* ===================================================== */
+/* Responsive (Mobile)                                    */
+/* ===================================================== */
+@media screen and (max-width: 600px) {
+  img {
+    width: 100%;
+    height: auto;
+  }
+
+  #logo-element {
+    width: 80svw;
+  }
+
+  #faviconGif {
+    width: 50svw;
+  }
+
+  .glass-card-content {
+    flex-direction: column;
+  }
+
+  .glass-card-content #divImageText {
+    display: contents;
+  }
+
+  .glass-card-content img {
+    width: 100%;
+    height: auto;
+  }
+
+  #areasTrabajo {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    gap: 1em;
+    padding-bottom: 1em;
+    -webkit-overflow-scrolling: touch;
+
+    height: 6em;
+  }
+
+  .title {
+    font-size: 1.2em;
+  }
+
+  .glass-card-content .button {
+    width: 100%;
+    margin-top: auto;
+    margin-bottom: 1em;
+    padding: 1.2em;
+    font-size: 1em;
+    font-weight: bold;
+  }
+}
