@@ -77,6 +77,7 @@ body {
 
 #logo-element {
   width: 20svw;
+  height: auto;
 }
 
 .logo-scrolled {
@@ -380,6 +381,7 @@ body {
 
   #faviconGif {
     width: 50svw;
+    height: auto;
   }
 
   .glass-card-content {
